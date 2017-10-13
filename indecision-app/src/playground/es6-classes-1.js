@@ -50,7 +50,7 @@ class Traveler extends Person {
         if (this.placesVisited.length > 0) {
             let visitedStr = ' I have been to';
             let placesStr = this.placesVisited.reduce((last, now , i) => {
-                return last += ` ${now}${i === this.placesVisited.length - 1 ? '.' : ','}`;
+                return last += `${i === 1 ? ', ' : ' '}${i === this.placesVisited.length - 1 ? 'and ' : ''}${now}${i === this.placesVisited.length - 1 ? '.' : ','}`;
             });
             greeting += `${visitedStr} ${placesStr}`;
         }
@@ -75,6 +75,6 @@ console.log(other.getGreeting());
 
 console.log('\n--------------------------------------\n');
 
-const heebo = new Traveler('Heebo', 35, 'male', 'Helsinki', ['Stockholm', 'London', 'Johannesburg']);
+const heebo = new Traveler('Heebo', 35, 'male', 'Helsinki', ['Stockholm', 'London', 'Johannesburg', 'Berlin']);
 console.log(heebo);
 console.log(heebo.getGreeting());
