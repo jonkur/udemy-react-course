@@ -10,33 +10,32 @@ class Counter extends React.Component {
     }
 
     componentDidMount() {
-        console.log('mounted');
+        try {
+            const count = parseInt(localStorage.count);
+            if (!isNaN(count)) {
+                this.setState( () => ({count}) );
+            }
+        } catch (e) {
+            console.log(e);
+        }
     }
 
-    componentDidUpdate() {
-        localStorage.setItem('count', this.state.count);
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.count !== prevState.count) {
+            localStorage.setItem('count', this.state.count);
+        }
     }
 
     handleAddOne() {
-        this.setState((prevState) => {
-            return {
-                count: prevState.count + 1
-            };
-        });
+        this.setState( (prevState) => ({count: prevState.count + 1}) );
     }
 
     handleMinusOne() {
-        this.setState((prevState) => {
-            return {
-                count: prevState.count - 1
-            };
-        });
+        this.setState( (prevState) => ({count: prevState.count - 1}) );
     }
 
     handleReset() {
-        this.setState(() => {
-            return {count: 0}
-        });
+        this.setState( () => ({count: 0}) );
     }
 
     render() {
