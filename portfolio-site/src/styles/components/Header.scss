@@ -1,0 +1,24 @@
+.header-main {
+    width: 100%;
+    padding: 3rem 0;
+    background: #344578;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 30rem;
+    margin: auto;
+    padding: 0 5rem;
+}
+
+.header-inner>a {
+    font-size: $m-size;
+    color: #eee;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-weight: bold;
+}
+
+a {
+    outline: 0;
+}
